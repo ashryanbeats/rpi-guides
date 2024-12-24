@@ -33,10 +33,10 @@ nano ~/kiosk.sh
 
 ```bash
 #!/bin/bash
-# Disable screen management features
-xset s off                # Disable screen saver
-xset -dpms                # Disable power management
-xset s noblank           # Disable blanking of the screen
+# Optionally disable screen management features if you want the display to stay on
+# xset s off      <- Disable screen saver
+# xset -dpms      <- Disable power management
+# xset s noblank  <- Disable blanking of the screen
 
 # Launch Chromium in kiosk mode
 chromium-browser \
