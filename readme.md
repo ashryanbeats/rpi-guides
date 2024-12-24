@@ -70,25 +70,17 @@ sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 
 2. Add the kiosk script to the file:
 
-```ini
+```bash
 @/home/pi/kiosk.sh
 ```
 
 Example file:
 
-```ini
-[Unit]
-Description=Raspberry Pi Kiosk Mode
-After=graphical.target
-
-[Service]
-ExecStart=/home/pi/kiosk.sh
-Environment=DISPLAY=:0
-User=pi
-Group=pi
-
-[Install]
-WantedBy=graphical.target
+```bash
+@lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+@xscreensaver -no-splash
+@/home/pi/kiosk.sh
 ```
 
 3. Save and exit:
