@@ -25,38 +25,38 @@ sudo apt install -y chromium-browser
 
 1. Create the script:
 
-```bash
-nano ~/kiosk.sh
-```
+   ```bash
+   nano ~/kiosk.sh
+   ```
 
 2. Add the following content:
 
-```bash
-#!/bin/bash
-# Optionally disable screen management features if you want the display to stay on
-# xset s off      <- Disable screen saver
-# xset -dpms      <- Disable power management
-# xset s noblank  <- Disable blanking of the screen
+   ```bash
+   #!/bin/bash
+   # Optionally disable screen management features if you want the display to stay on
+   # xset s off      <- Disable screen saver
+   # xset -dpms      <- Disable power management
+   # xset s noblank  <- Disable blanking of the screen
 
-# Launch Chromium in kiosk mode
-chromium-browser \
-  --kiosk \
-  --noerrdialogs \
-  --disable-infobars \
-  --hide-scrollbars \
-  --touch-events=enabled \
-  --disable-pinch \
-  --overscroll-history-navigation=0 \
-  --force-device-scale-factor=1 \
-  --no-first-run \
-  --app="http://your-url-here"
-```
+   # Launch Chromium in kiosk mode
+   chromium-browser \
+     --kiosk \
+     --noerrdialogs \
+     --disable-infobars \
+     --hide-scrollbars \
+     --touch-events=enabled \
+     --disable-pinch \
+     --overscroll-history-navigation=0 \
+     --force-device-scale-factor=1 \
+     --no-first-run \
+     --app="http://your-url-here"
+   ```
 
 3. Make it executable:
 
-```bash
-chmod +x ~/kiosk.sh
-```
+   ```bash
+   chmod +x ~/kiosk.sh
+   ```
 
 ### 3. Automate Kiosk Startup
 
@@ -64,34 +64,35 @@ To run the kiosk script automatically when the graphical environment starts:
 
 1. Edit the global LXDE autostart file:
 
-```bash
-sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
-```
+   ```bash
+   sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+   ```
 
 2. Add the kiosk script to the file:
 
-```bash
-@/home/pi/kiosk.sh
-```
+   ```bash
+   @/home/pi/kiosk.sh
+   ```
 
-Example file:
+   Example file:
 
-```bash
-@lxpanel --profile LXDE-pi
-@pcmanfm --desktop --profile LXDE-pi
-@xscreensaver -no-splash
-@/home/pi/kiosk.sh
-```
+   ```bash
+   @lxpanel --profile LXDE-pi
+   @pcmanfm --desktop --profile LXDE-pi
+   @xscreensaver -no-splash
+   @/home/pi/kiosk.sh
+   ```
 
 3. Save and exit:
-   • Press Ctrl + O, Enter to save.
-   • Press Ctrl + X to exit.
+
+   - Press Ctrl + O, Enter to save.
+   - Press Ctrl + X to exit.
 
 4. Reboot to verify:
 
-```bash
-sudo reboot
-```
+   ```bash
+   sudo reboot
+   ```
 
 After rebooting, Chromium should launch automatically in kiosk mode.
 
@@ -121,62 +122,64 @@ The kiosk script uses several Chromium flags to create a clean kiosk experience:
 
 1. Run the Script Manually:
 
-```bash
-~/kiosk.sh
-```
+   ```bash
+   ~/kiosk.sh
+   ```
 
 2. Check Autostart File:
 
-```bash
-cat /etc/xdg/lxsession/LXDE-pi/autostart
-```
+   ```bash
+   cat /etc/xdg/lxsession/LXDE-pi/autostart
+   ```
 
-Ensure the file includes the line:
+   Ensure the file includes the line:
 
-```txt
-@/home/pi/kiosk.sh
-```
+   ```txt
+   @/home/pi/kiosk.sh
+   ```
 
 ### Debug logs
 
 1. Check system logs:
 
-```bash
-sudo journalctl -xe
-```
+   ```bash
+   sudo journalctl -xe
+   ```
 
 2. Check Chromium errors:
 
-```bash
-chromium-browser --no-sandbox
-```
+   ```bash
+   chromium-browser --no-sandbox
+   ```
 
 ### Maintenance tips
 
 1. Schedule a daily reboot:
 
-```bash
-sudo crontab -e
-```
+   ```bash
+   sudo crontab -e
+   ```
 
-Add the following line to reboot at 3 am daily:
+   Add the following line to reboot at 3 am daily:
 
-```txt
-0 3 * * * /sbin/reboot
-```
+   ```txt
+   0 3 * * * /sbin/reboot
+   ```
+
+   See the [Auto-Reboot guide](auto-reboot.md) for more details.
 
 2. Monitor System Resources:
 
-Use htop or similar tools to check CPU and memory usage periodically.
+   Use htop or similar tools to check CPU and memory usage periodically.
 
 3. Keep the System Updated:
 
-Run regular updates to keep the system and Chromium up to date.
+   Run regular updates to keep the system and Chromium up to date.
 
-```bash
-sudo apt update
-sudo apt upgrade -y
-```
+   ```bash
+   sudo apt update
+   sudo apt upgrade -y
+   ```
 
 ## Future Enhancements
 

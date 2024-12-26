@@ -76,11 +76,13 @@ sudo apt-get install xscreensaver
 
 Ensure xscreensaver starts automatically on boot.
 
-1. Edit the crontab:
+1. Edit the user's crontab:
 
    ```bash
    crontab -e
    ```
+
+   Note: do not use `sudo` for this command, which would instead edit the root user's crontab. The screensaver should run as the user, not root. For more information, see the the Auto-Reboot guide.
 
 2. Add the following line:
 
