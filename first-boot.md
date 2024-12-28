@@ -26,8 +26,8 @@ sudo apt autoclean
 Install common utilities:
 
 ```bash
-sudo apt install htop # for system monitoring
-sudo apt install neofetch # for system info
+sudo apt install htop -y # for system monitoring
+sudo apt install neofetch -y # for system info
 ```
 
 ## Basic OS Configuration
