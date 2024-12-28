@@ -15,7 +15,11 @@ Update the package list and upgrade all packages:
 
 ```bash
 sudo apt update
+sudo apt upgrade
 sudo apt full-upgrade
+sudo apt autoremove -y
+sudo apt autoclean
+sudo rpi-update
 ```
 
 ## Admin Experience Improvements
