@@ -70,6 +70,8 @@ To run the kiosk script automatically when the graphical environment starts:
 
 2. Add the kiosk script to the file:
 
+   Note: Update `/pi` in this path to the location of the script you created in the previous section.
+
    ```bash
    @/home/pi/kiosk.sh
    ```
@@ -83,12 +85,12 @@ To run the kiosk script automatically when the graphical environment starts:
    @/home/pi/kiosk.sh
    ```
 
-3. Save and exit:
+4. Save and exit:
 
    - Press Ctrl + O, Enter to save.
    - Press Ctrl + X to exit.
 
-4. Reboot to verify:
+5. Reboot to verify:
 
    ```bash
    sudo reboot
