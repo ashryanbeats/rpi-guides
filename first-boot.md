@@ -15,8 +15,8 @@ Update the package list and upgrade all packages:
 
 ```bash
 sudo apt update
-sudo apt upgrade
-sudo apt full-upgrade
+sudo apt upgrade -y
+sudo apt full-upgrade -y
 sudo apt autoremove -y
 sudo apt autoclean
 ```
